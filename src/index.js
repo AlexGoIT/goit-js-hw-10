@@ -15,14 +15,14 @@ const refs = {
 refs.searchInput.addEventListener('input', debounce(search, DEBOUNCE_DELAY));
 
 function search({ target: { value } }) {
-  const cauntryName = value.trim();
+  const countryName = value.trim();
 
-  if (!cauntryName) {
+  if (!countryName) {
     resetUI();
     return;
   }
   
-  fetchCountries(cauntryName).then(renderData).catch(statusError);
+  fetchCountries(countryName).then(renderData).catch(statusError);
 }
 
 function renderData(data) {
