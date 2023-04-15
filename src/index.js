@@ -68,9 +68,6 @@ function resetUI() {
 }
 
 function statusError(err) {
+  resetUI();
   Notiflix.Notify.failure('Oops, there is no country with that name.');
-  console.info(
-    `%c 🔴 Oops, there is no country with that name.`,
-    'color: red;'
-  );
 }
