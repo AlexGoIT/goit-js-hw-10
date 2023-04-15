@@ -12,9 +12,52 @@ body {
   line-height: 1.5;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+}
+
+.cauntry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cauntry-item {
+  display: flex;
+  align-items: center;
+}
+
+.cauntry-name {
+  margin-left: 8px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.country-info {
+
+}
+
+.cauntry-title {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.cauntry-capital {
+  font-weight: 500;
+}
+.cauntry-population {
+  font-weight: 500;
+}
+.cauntry-languages {
+  font-weight: 500;
 }
