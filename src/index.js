@@ -25,10 +25,6 @@ function renderData(data) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
-    console.info(
-      `%c 🔵 Too many matches found. Please enter a more specific name.`,
-      'color: blue;'
-    );
     return;
   }
 
@@ -67,7 +63,7 @@ function resetUI() {
   refs.countryInfo.innerHTML = '';
 }
 
-function statusError(err) {
+function statusError() {
   resetUI();
   Notiflix.Notify.failure('Oops, there is no country with that name.');
 }
