@@ -25,6 +25,7 @@ function search({ target: { value } }) {
   fetchCountries(countryName).then(renderData).catch(statusError);
 }
 
+// Render data
 function renderData(countryList) {
   if (countryList.length > 10) {
     Notiflix.Notify.info(
@@ -45,44 +46,46 @@ function renderData(countryList) {
 
     refs.countryInfoContainer.insertAdjacentHTML(
       'beforeend',
-      createCountryInfoMarkup(countryList)
+      createCountryInfoMarkup(countryList[0])
     );
   }
 }
 
+// Status error
 function statusError() {
   resetUI();
   Notiflix.Notify.failure('Oops, there is no country with that name.');
 }
 
+// Reset the UI
 function resetUI() {
   refs.countryListContainer.innerHTML = '';
   refs.countryInfoContainer.innerHTML = '';
 }
 
+// Generate a markup for a given country's list.
 function createCountryListMarkup(countryList) {
   return countryList
-      .map(
-        ({ name : { official }, flags: { svg } }) => 
-          `
+    .map(
+      ({ name: { official }, flags: { svg } }) =>
+        `
       <li class="country-item" data-country="${official}">
         <img src="${svg}" alt="${official}" width="50" />
         <p class="country-name">${official}</p>
       </li>
       `
-      )
-      .join('');
+    )
+    .join('');
 }
 
-function createCountryInfoMarkup(countryList) {
-  const {
-    name: { official },
-    capital,
-    population,
-    flags: { svg },
-    languages,
-  } = countryList[0];
-
+// Generate a markup for a given country's information.
+function createCountryInfoMarkup({
+  name: { official },
+  capital,
+  population,
+  flags: { svg },
+  languages,
+}) {
   return `
     <div class="country-info-title">
       <img src="${svg}" alt="${official}" width="50" />
